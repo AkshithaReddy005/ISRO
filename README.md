@@ -1,83 +1,111 @@
-# Akashpath: Tracing ISRO’s Journey
+# 🌌 Akashpath: Tracing ISRO’s Journey
 
-A visually immersive, modern web project chronicling the history, achievements, and missions of the Indian Space Research Organisation (ISRO).
+> *“From humble beginnings to interplanetary missions — this project celebrates the extraordinary voyage of India’s space dream.”*
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [How to Run](#how-to-run)
-- [Media & Credits](#media--credits)
-- [Team](#team)
-- [License](#license)
+A visually immersive, space-themed web experience that chronicles the legacy, missions, and visionaries of the Indian Space Research Organisation (ISRO). Built using **HTML, CSS, and JavaScript**, the site is responsive, elegant, and informative — designed to educate, inspire, and honor India's journey into the stars.
 
 ---
 
-## Overview
-**Akashpath: Tracing ISRO’s Journey** is a tribute to ISRO’s legacy, designed for educational and inspirational purposes. The site features a looping space-themed background video, a clean hero section, mission galleries, a timeline, and references to official ISRO resources. The interface is responsive, visually appealing, and easy to navigate.
-
-## Features
-- **Hero Section:**
-  - Project title and ISRO’s vision.
-  - Prominent, readable text over a dynamic blurred video background.
-- **Background Video:**
-  - Fullscreen, looping, and blurred for subtlety.
-  - Cycles through curated space videos.
-- **Navigation Bar:**
-  - Fixed, modern, and responsive with smooth scrolling.
-- **Mission Gallery:**
-  - Interactive gallery with modal popups.
-- **Timeline & Achievements:**
-  - Chronological highlights of ISRO’s key milestones.
-- **Leaders Section:**
-  - Cards for notable ISRO leaders with images and bios.
-- **Citations / Sources:**
-  - Official, government, and news links, clearly credited.
-- **Project Members:**
-  - Team roles and credits.
-- **Mobile Friendly:**
-  - Responsive design, touch-friendly UI.
-
-## Project Structure
-```
-SpaceChronicle/
-├── index.html            # Main landing page
-├── x1.html               # (Optional/secondary page)
-├── README.md             # Project documentation
-├── assets/               # Images, videos, icons (if any, or external links)
-├── css/                  # CSS files (if separated)
-├── js/                   # JavaScript files (if separated)
-```
-
-## How to Run
-1. **Download or Clone** this repository to your local machine.
-2. **Open `index.html`** in any modern web browser (Chrome, Edge, Firefox, Safari, etc.).
-3. **No build or server required** – all features work with static HTML, CSS, and JS.
-
-### Notes
-- For best experience, ensure a stable internet connection (background videos and some images are loaded from external sources).
-- If you wish to deploy online, you can use GitHub Pages, Netlify, or Vercel for static hosting.
-
-## Media & Credits
-- **Background Videos:** [Pixabay Videos](https://pixabay.com/videos/)
-- **Leader Images:** Bing Images, StarsUnfolded.com
-- **ISRO Facts:** [ISRO Official Website](https://www.isro.gov.in)
-- **Icons:** [Font Awesome](https://fontawesome.com/)
-- **References Section:**
-  - [ISRO Official Website](https://www.isro.gov.in)
-  - [ISRO Missions Page](https://www.isro.gov.in/Missions.html)
-  - [PIB India – ISRO Updates](https://pib.gov.in)
-  - [National Remote Sensing Centre](https://www.nrsc.gov.in)
-  - [The Hindu - ISRO Articles](https://www.thehindu.com)
-  - [Wikipedia – ISRO](https://en.wikipedia.org/wiki/ISRO)
-
-## Team
-- **Akshitha** – Frontend Developer & Content Curator
-- **Pradeep** – JavaScript Developer & Visual Designer
-
-## License
-This project is for educational and non-commercial use only. All external media and references belong to their respective owners.
+## 🚀 Table of Contents
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Project Structure](#-project-structure)
+- [How to Launch](#-how-to-launch)
+- [Media & References](#-media--references)
+- [Team](#-team)
+- [License](#-license)
 
 ---
 
-For suggestions or contributions, please contact the project members listed above.
+## 🌠 Overview
+
+**Akashpath: Tracing ISRO’s Journey** is a digital homage to India’s space odyssey. The website takes users on an inspiring tour through ISRO’s major milestones, historic missions, visionary scientists, and groundbreaking achievements — all wrapped in a modern, clean, and animated space interface. It serves as both a tribute and an educational platform.
+
+---
+
+## 🌌 Key Features
+
+- **🚀 Hero Section:**  
+  A full-width intro with ISRO’s vision statement and project title, layered over a sleek, blurred video background of space footage.
+
+- **🌌 Background Video:**  
+  A looping, fullscreen cosmic video that sets the mood — subtle, atmospheric, and non-distracting.
+
+- **🛰️ Navigation Bar:**  
+  Fixed, minimalist, and smooth-scrolling navigation for easy section access.
+
+- **📷 Mission Gallery:**  
+  An interactive gallery with modal popups showcasing major missions like Chandrayaan, Mangalyaan, and Gaganyaan.
+
+- **🕰️ Timeline & Achievements:**  
+  Chronological highlights of ISRO’s growth from 1969 to present day.
+
+- **👨‍🚀 Leaders Section:**  
+  Tribute cards for key visionaries like Dr. Vikram Sarabhai, Dr. Abdul Kalam, and others — with photos and bios.
+
+- **📖 Reference Section:**  
+  All facts are sourced and credited to official ISRO or reputed news/government resources.
+
+- **📱 Fully Responsive:**  
+  Mobile-friendly layout with fluid design and touch-optimized elements.
+
+---
+
+## 🧭 Project Structure
+Akashpath/
+├── index.html # Main landing page
+├── x1.html # (Optional internal pages)
+├── css/ # Custom stylesheets
+├── js/ # JavaScript files for interactivity
+├── assets/ # Images, icons, videos
+├── README.md # Project documentation
+
+---
+
+## 🧪 How to Launch
+
+1. **Download or Clone** the project to your system.
+2. Open the `index.html` file in any modern web browser.
+3. No server required – runs completely on static files.
+
+> 💡 *Tip: Host it on GitHub Pages, Netlify, or Vercel for public access.*
+
+---
+
+## 🎥 Media & References
+
+**Visuals & Icons:**
+- Background Videos: [Pixabay Videos](https://pixabay.com/videos/)
+- Leader Images: Bing Images, StarsUnfolded
+- Icons: [Font Awesome](https://fontawesome.com/)
+
+**Official References:**
+- [ISRO Official Website](https://www.isro.gov.in)
+- [ISRO Missions](https://www.isro.gov.in/Missions.html)
+- [PIB India](https://pib.gov.in)
+- [National Remote Sensing Centre](https://www.nrsc.gov.in)
+- [The Hindu – ISRO News](https://www.thehindu.com)
+- [Wikipedia – ISRO Overview](https://en.wikipedia.org/wiki/ISRO)
+
+---
+
+## 👩‍🚀 Team
+
+- **Akshitha Reddy** – *Frontend Developer & Content Curator*  
+  Designed the structure and layout of the website, curated and organized ISRO’s historical content.
+
+- **Pradeep** – *JavaScript Developer & Visual Designer*  
+  Handled dynamic interactivity, visual transitions, and visual theming aligned with the space concept.
+
+---
+
+## 📜 License
+
+This project is intended for **educational and non-commercial use only**.  
+All external media and content remain the property of their respective owners.
+
+---
+
+*For suggestions, feedback, or collaborations — feel free to reach out to the project members.*
+
+
