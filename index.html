@@ -1,0 +1,2743 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISRO - Indian Space Research Organisation | Official Journey</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* === ROOT VARIABLES === */
+      :root {
+        --primary-bg: #0a0d1a;
+        --secondary-bg: #121827;
+        --tertiary-bg: #1a1f35;
+        --card-bg: #1e2442;
+        --accent-blue: #00d4ff;
+        --accent-cyan: #4ade80;
+        --accent-orange: #ff6b35;
+        --accent-gold: #fbbf24;
+        --accent-purple: #8b5cf6;
+        --accent-pink: #ec4899;
+        --text-primary: #ffffff;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --border-color: #334155;
+        --glow-blue: rgba(0, 212, 255, 0.4);
+        --glow-cyan: rgba(74, 222, 128, 0.4);
+        --glow-gold: rgba(251, 191, 36, 0.4);
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-space: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
+        --gradient-cosmic: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f093fb 100%
+        );
+        --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.2);
+        --shadow-heavy: 0 20px 80px rgba(0, 0, 0, 0.3);
+        --border-radius-sm: 8px;
+        --border-radius-md: 12px;
+        --border-radius-lg: 20px;
+        --border-radius-xl: 30px;
+        --transition-fast: 0.2s ease;
+        --transition-medium: 0.3s ease;
+        --transition-slow: 0.5s ease;
+      }
+
+      /* === BASE STYLES === */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--primary-bg);
+        color: var(--text-primary);
+        overflow-x: hidden;
+        line-height: 1.6;
+        position: relative;
+      }
+
+      /* === BACKGROUND ELEMENTS === */
+      .bg-stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+          radial-gradient(
+            2px 2px at 40px 70px,
+            rgba(255, 255, 255, 0.8),
+            transparent
+          ),
+          radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+          radial-gradient(
+            1px 1px at 130px 80px,
+            rgba(255, 255, 255, 0.6),
+            transparent
+          ),
+          radial-gradient(2px 2px at 160px 30px, #ffffff, transparent),
+          radial-gradient(
+            1px 1px at 200px 50px,
+            rgba(255, 255, 255, 0.7),
+            transparent
+          ),
+          radial-gradient(2px 2px at 250px 90px, #ffffff, transparent);
+        background-repeat: repeat;
+        background-size: 300px 200px;
+        animation: twinkle 12s infinite;
+      }
+
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.2;
+        }
+        25% {
+          opacity: 0.6;
+        }
+        50% {
+          opacity: 0.9;
+        }
+        75% {
+          opacity: 0.4;
+        }
+      }
+
+      .bg-nebula {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: radial-gradient(
+            ellipse at 20% 50%,
+            rgba(139, 92, 246, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 80% 20%,
+            rgba(236, 72, 153, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 40% 80%,
+            rgba(0, 212, 255, 0.1) 0%,
+            transparent 50%
+          );
+        animation: nebulaFloat 20s ease-in-out infinite;
+      }
+
+      @keyframes nebulaFloat {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-20px) rotate(1deg);
+        }
+        66% {
+          transform: translateY(10px) rotate(-1deg);
+        }
+      }
+
+      /* === LOADING SCREEN === */
+      .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
+
+      .loading.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loading-logo {
+        font-family: "Orbitron", monospace;
+        font-size: 3rem;
+        font-weight: 800;
+        background: linear-gradient(
+          135deg,
+          var(--accent-blue),
+          var(--accent-cyan),
+          var(--accent-gold)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 2rem;
+        animation: logoGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes logoGlow {
+        from {
+          filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5));
+        }
+        to {
+          filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.8));
+        }
+      }
+
+      .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(0, 212, 255, 0.2);
+        border-top: 4px solid var(--accent-blue);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading-text {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.6;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      /* === NAVIGATION === */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(18, 24, 39, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        transition: all var(--transition-medium);
+      }
+
+      .navbar.scrolled {
+        background: rgba(10, 13, 26, 0.98);
+        box-shadow: var(--shadow-heavy);
+        border-bottom-color: var(--accent-blue);
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+
+      .nav-logo {
+        font-family: "Orbitron", monospace;
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: linear-gradient(
+          135deg,
+          var(--accent-blue),
+          var(--accent-cyan)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 2px;
+        transition: all var(--transition-medium);
+      }
+
+      .nav-logo:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 20px var(--glow-blue));
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+
+      .nav-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.8rem 1.5rem;
+        border-radius: var(--border-radius-xl);
+        transition: all var(--transition-medium);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .nav-link:hover::before {
+        left: 100%;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--text-primary);
+        background: rgba(0, 212, 255, 0.2);
+        box-shadow: 0 0 30px var(--glow-blue);
+        transform: translateY(-2px);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: var(--border-radius-sm);
+        transition: all var(--transition-medium);
+      }
+
+      .mobile-menu-btn:hover {
+        background: rgba(0, 212, 255, 0.2);
+        transform: scale(1.1);
+      }
+
+      /* === HERO SECTION STYLES === */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: left;
+        background: transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #hero-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 2rem;
+        max-width: 600px;
+        margin-left: 2rem;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-blue);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) translateX(0px);
+          opacity: 0.3;
+        }
+        50% {
+          transform: translateY(-20px) translateX(10px);
+          opacity: 1;
+        }
+      }
+
+      .hero-content {
+        z-index: 2;
+        max-width: 1000px;
+        padding: 0 2rem;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: rgba(0, 212, 255, 0.2);
+        color: var(--accent-blue);
+        padding: 0.5rem 1.5rem;
+        border-radius: var(--border-radius-xl);
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        animation: fadeInUp 1s ease 0.2s both;
+      }
+
+      .hero-title {
+        font-family: "Orbitron", monospace;
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-gold),
+          var(--accent-orange),
+          var(--accent-blue),
+          var(--accent-purple)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: fadeInUp 1s ease 0.4s both,
+          titleGlow 4s ease-in-out infinite alternate;
+        line-height: 1.1;
+      }
+
+      @keyframes titleGlow {
+        from {
+          filter: drop-shadow(0 0 30px rgba(251, 191, 36, 0.5));
+        }
+        to {
+          filter: drop-shadow(0 0 60px rgba(251, 191, 36, 0.8));
+        }
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        font-weight: 200;
+        color: var(--text-secondary);
+        margin-bottom: 3rem;
+        animation: fadeInUp 1s ease 0.6s both;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s ease 0.8s both;
+      }
+
+      .hero-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1.2rem 2.5rem;
+        border: none;
+        border-radius: var(--border-radius-xl);
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-medium);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--accent-blue),
+          var(--accent-cyan)
+        );
+        color: white;
+      }
+
+      .hero-btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .hero-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .hero-btn:hover::before {
+        left: 100%;
+      }
+
+      .hero-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 50px rgba(0, 212, 255, 0.4);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* === SECTIONS === */
+      .section {
+        padding: 8rem 0;
+        position: relative;
+        background: transparent;
+      }
+
+      .section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 5rem;
+      }
+
+      .section-badge {
+        display: inline-block;
+        background: rgba(139, 92, 246, 0.2);
+        color: var(--accent-purple);
+        padding: 0.5rem 1.5rem;
+        border-radius: var(--border-radius-xl);
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(139, 92, 246, 0.3);
+      }
+
+      .section-title {
+        font-family: "Orbitron", monospace;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-blue),
+          var(--accent-cyan)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 4px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-blue),
+          var(--accent-cyan)
+        );
+        border-radius: 2px;
+      }
+
+      .section-description {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      /* === STATISTICS === */
+      .stats-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+      }
+
+      .stat-card {
+        text-align: center;
+        padding: 2rem;
+        background: var(--card-bg);
+        border-radius: var(--border-radius-lg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all var(--transition-medium);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stat-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 212, 255, 0.1),
+          rgba(74, 222, 128, 0.1)
+        );
+        opacity: 0;
+        transition: opacity var(--transition-medium);
+      }
+
+      .stat-card:hover::before {
+        opacity: 1;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 80px rgba(0, 212, 255, 0.3);
+      }
+
+      .stat-number {
+        font-family: "Orbitron", monospace;
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--accent-gold);
+        margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .stat-description {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* === TIMELINE === */
+      .timeline-container {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .timeline {
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: linear-gradient(
+          to bottom,
+          var(--accent-blue),
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin: 4rem 0;
+        width: 45%;
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-medium);
+        transition: all var(--transition-medium);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 55%;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        background: var(--accent-blue);
+        border-radius: 50%;
+        top: 2.5rem;
+        box-shadow: 0 0 30px var(--glow-blue);
+        border: 4px solid var(--primary-bg);
+      }
+
+      .timeline-item:nth-child(odd)::before {
+        right: -37px;
+      }
+
+      .timeline-item:nth-child(even)::before {
+        left: -37px;
+      }
+
+      .timeline-item:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 30px 80px rgba(0, 212, 255, 0.3);
+      }
+
+      .timeline-year {
+        font-family: "Orbitron", monospace;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--accent-gold);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .timeline-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .timeline-content {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+
+      /* === MISSIONS GRID === */
+      .missions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .mission-card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius-lg);
+        padding: 3rem;
+        position: relative;
+        overflow: hidden;
+        transition: all var(--transition-medium);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+      }
+
+      .mission-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 212, 255, 0.1),
+          rgba(74, 222, 128, 0.1)
+        );
+        opacity: 0;
+        transition: opacity var(--transition-medium);
+      }
+
+      .mission-card:hover::before {
+        opacity: 1;
+      }
+
+      .mission-card:hover {
+        transform: translateY(-15px) scale(1.03);
+        box-shadow: 0 30px 100px rgba(0, 212, 255, 0.4);
+      }
+
+      .mission-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .mission-status {
+        display: inline-block;
+        padding: 0.4rem 1.2rem;
+        border-radius: var(--border-radius-xl);
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .mission-status.success {
+        background: rgba(74, 222, 128, 0.2);
+        color: var(--accent-cyan);
+        border: 1px solid rgba(74, 222, 128, 0.3);
+      }
+
+      .mission-status.partial {
+        background: rgba(251, 191, 36, 0.2);
+        color: var(--accent-gold);
+        border: 1px solid rgba(251, 191, 36, 0.3);
+      }
+
+      .mission-status.ongoing {
+        background: rgba(139, 92, 246, 0.2);
+        color: var(--accent-purple);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+      }
+
+      .mission-icon {
+        font-size: 2rem;
+        color: var(--accent-blue);
+      }
+
+      .mission-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+        position: relative;
+        z-index: 1;
+      }
+
+      .mission-description {
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        position: relative;
+        z-index: 1;
+      }
+
+      .mission-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .mission-year {
+        font-family: "Orbitron", monospace;
+        color: var(--accent-gold);
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+
+      .mission-link {
+        color: var(--accent-blue);
+        text-decoration: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all var(--transition-medium);
+      }
+
+      .mission-link:hover {
+        color: var(--accent-cyan);
+        transform: translateX(5px);
+      }
+
+      /* === ACHIEVEMENTS === */
+      .achievements-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .achievement-card {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: var(--border-radius-lg);
+        text-align: center;
+        transition: all var(--transition-medium);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .achievement-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+          from 0deg,
+          transparent,
+          var(--accent-blue),
+          transparent
+        );
+        animation: rotate 6s linear infinite;
+        opacity: 0;
+        transition: opacity var(--transition-medium);
+      }
+
+      .achievement-card:hover::before {
+        opacity: 0.1;
+      }
+
+      @keyframes rotate {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .achievement-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 80px rgba(0, 212, 255, 0.3);
+      }
+
+      .achievement-icon {
+        font-size: 3.5rem;
+        color: var(--accent-blue);
+        margin-bottom: 2rem;
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+
+      .achievement-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+        position: relative;
+        z-index: 1;
+      }
+
+      .achievement-description {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* === LEADERS === */
+      .leaders-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .leader-card {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: var(--border-radius-lg);
+        text-align: center;
+        transition: all var(--transition-medium);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .leader-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.1),
+          rgba(236, 72, 153, 0.1)
+        );
+        opacity: 0;
+        transition: opacity var(--transition-medium);
+      }
+
+      .leader-card:hover::before {
+        opacity: 1;
+      }
+
+      .leader-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 30px 80px rgba(139, 92, 246, 0.3);
+      }
+
+      .leader-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 2rem;
+        border: 4px solid var(--accent-blue);
+        box-shadow: 0 0 40px var(--glow-blue);
+        transition: all var(--transition-medium);
+        position: relative;
+        z-index: 1;
+      }
+
+      .leader-card:hover .leader-image {
+        transform: scale(1.1);
+        box-shadow: 0 0 60px var(--glow-blue);
+      }
+
+      .leader-name {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        color: var(--text-primary);
+        position: relative;
+        z-index: 1;
+      }
+
+      .leader-role {
+        color: var(--accent-gold);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .leader-period {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .leader-description {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* === GALLERY === */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        background: var(--card-bg);
+        transition: all var(--transition-medium);
+        aspect-ratio: 4/3;
+        cursor: pointer;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 25px 80px rgba(0, 212, 255, 0.4);
+      }
+
+      .gallery-image {
+        width: 100%;
+        height: 75%;
+        object-fit: cover;
+        transition: all var(--transition-medium);
+      }
+
+      .gallery-item:hover .gallery-image {
+        transform: scale(1.1);
+      }
+
+      .gallery-caption {
+        padding: 1.5rem;
+        color: var(--text-primary);
+        font-weight: 600;
+        text-align: center;
+        background: var(--card-bg);
+        font-size: 1rem;
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 75%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 212, 255, 0.8),
+          rgba(74, 222, 128, 0.8)
+        );
+        opacity: 0;
+        transition: opacity var(--transition-medium);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      .gallery-overlay i {
+        font-size: 3rem;
+        color: white;
+      }
+
+      /* === TECHNOLOGY SECTION === */
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 4rem;
+      }
+
+      .tech-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: var(--border-radius-lg);
+        text-align: center;
+        transition: all var(--transition-medium);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tech-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(0, 212, 255, 0.1),
+          rgba(236, 72, 153, 0.1)
+        );
+        opacity: 0;
+        transition: opacity var(--transition-medium);
+      }
+
+      .tech-card:hover::before {
+        opacity: 1;
+      }
+
+      .tech-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+      }
+
+      .tech-icon {
+        font-size: 3rem;
+        color: var(--accent-purple);
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .tech-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+        position: relative;
+        z-index: 1;
+      }
+
+      .tech-description {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.9rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* === FOOTER === */
+      .footer {
+        background: var(--secondary-bg);
+        padding: 4rem 0 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-section h3 {
+        color: var(--text-primary);
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color var(--transition-medium);
+      }
+
+      .footer-link:hover {
+        color: var(--accent-blue);
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(0, 212, 255, 0.2);
+        color: var(--accent-blue);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all var(--transition-medium);
+      }
+
+      .social-link:hover {
+        background: var(--accent-blue);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-muted);
+      }
+
+      /* === SCROLL ANIMATIONS === */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s ease;
+      }
+
+      .slide-in-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s ease;
+      }
+
+      .slide-in-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .scale-in {
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.8s ease;
+      }
+
+      .scale-in.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* === RESPONSIVE DESIGN === */
+      @media (max-width: 1024px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .timeline::before {
+          left: 30px;
+        }
+
+        .timeline-item {
+          width: calc(100% - 80px);
+          left: 60px !important;
+        }
+
+        .timeline-item::before {
+          left: -37px !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-container {
+          padding: 0 1rem;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .section {
+          padding: 4rem 0;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+
+        .missions-grid,
+        .achievements-grid,
+        .leaders-grid,
+        .gallery-grid,
+        .tech-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-badge {
+          font-size: 0.8rem;
+          padding: 0.4rem 1rem;
+        }
+
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* === CUSTOM SCROLLBAR === */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--primary-bg);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          135deg,
+          var(--accent-blue),
+          var(--accent-cyan)
+        );
+      }
+
+      /* === HERO SECTION STYLES === */
+      .hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero-badge {
+        font-size: 1.2rem;
+        font-weight: 500;
+        background: var(--gradient-space);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.5rem;
+        border-radius: var(--border-radius-lg);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition-medium);
+      }
+
+      .hero-btn-primary {
+        background: var(--accent-blue);
+        color: var(--text-primary);
+      }
+
+      .hero-btn-secondary {
+        background: var(--accent-cyan);
+        color: var(--text-primary);
+      }
+
+      .hero-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .hero-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      /* === HERO SECTION STYLES END === */
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          135deg,
+          var(--accent-blue),
+          var(--accent-cyan)
+        );
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-blue)
+        );
+      }
+
+      /* === UTILITY CLASSES === */
+      .text-gradient {
+        background: linear-gradient(
+          135deg,
+          var(--accent-blue),
+          var(--accent-cyan)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .glow {
+        filter: drop-shadow(0 0 20px var(--glow-blue));
+      }
+
+      .pulse {
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      /* === MODAL STYLES === */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 10000;
+        backdrop-filter: blur(10px);
+      }
+
+      .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: var(--border-radius-lg);
+        max-width: 600px;
+        width: 90%;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color var(--transition-medium);
+      }
+
+      .modal-close:hover {
+        color: var(--text-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video id="bg-video" autoplay muted loop playsinline style="position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:0;pointer-events:none;background:#000;filter: blur(6px);"></video>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+      <div class="loading-logo">ISRO</div>
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Initializing Space Journey...</div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="bg-stars"></div>
+    <div class="bg-nebula"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">ISRO</div>
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#stats" class="nav-link">Statistics</a></li>
+          <li><a href="#timeline" class="nav-link">Timeline</a></li>
+          <li><a href="#missions" class="nav-link">Missions</a></li>
+          <li><a href="#achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#technology" class="nav-link">Technology</a></li>
+          <li><a href="#leaders" class="nav-link">Leaders</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <video autoplay muted loop id="hero-video">
+        <source src="C:\Users\Akshitha\Downloads\SpaceChronicle\WhatsApp Video 2025-06-10 at 08.36.59_9ca7b50b.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-particles" id="heroParticles"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-rocket"></i>
+          India's Space Excellence
+        </div>
+        <h1 class="hero-title">Indian Space Research Organisation</h1>
+        <p class="hero-subtitle">
+          Pioneering India's journey to the cosmos through cutting-edge
+          technology, scientific innovation, and unwavering determination to
+          explore the final frontier.
+        </p>
+        <div class="hero-buttons">
+          <a href="#missions" class="hero-btn hero-btn-primary">
+            <i class="fas fa-satellite"></i>
+            Explore Missions
+          </a>
+          <a href="#timeline" class="hero-btn hero-btn-secondary">
+            <i class="fas fa-history"></i>
+            Our Journey
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section stats-section" id="stats">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-badge">By The Numbers</div>
+          <h2 class="section-title">ISRO's Achievements</h2>
+          <p class="section-description">
+            Remarkable milestones that showcase India's growing prowess in space
+            technology and exploration.
+          </p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card fade-in">
+            <div class="stat-number" data-count="400">0</div>
+            <div class="stat-label">Satellites Launched</div>
+            <div class="stat-description">For 34+ countries worldwide</div>
+          </div>
+          <div class="stat-card fade-in">
+            <div class="stat-number" data-count="55">0</div>
+            <div class="stat-label">Years of Excellence</div>
+            <div class="stat-description">Since establishment in 1969</div>
+          </div>
+          <div class="stat-card fade-in">
+            <div class="stat-number" data-count="104">0</div>
+            <div class="stat-label">Record Launch</div>
+            <div class="stat-description">Satellites in single mission</div>
+          </div>
+          <div class="stat-card fade-in">
+            <div class="stat-number" data-count="4">0</div>
+            <div class="stat-label">Moon Landing</div>
+            <div class="stat-description">
+              4th country to achieve soft landing
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section" id="timeline">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-badge">Our History</div>
+          <h2 class="section-title">Journey Through Time</h2>
+          <p class="section-description">
+            From humble beginnings to becoming a global space power, explore the
+            key milestones in ISRO's remarkable journey.
+          </p>
+        </div>
+        <div class="timeline-container">
+          <div class="timeline">
+            <div class="timeline-item fade-in">
+              <div class="timeline-year">
+                <i class="fas fa-star"></i>
+                1962
+              </div>
+              <div class="timeline-title">Foundation Era</div>
+              <div class="timeline-content">
+                Indian National Committee for Space Research (INCOSPAR) was
+                established under Dr. Vikram Sarabhai's visionary leadership,
+                laying the groundwork for India's space program.
+              </div>
+            </div>
+            <div class="timeline-item fade-in">
+              <div class="timeline-year">
+                <i class="fas fa-rocket"></i>
+                1969
+              </div>
+              <div class="timeline-title">ISRO Establishment</div>
+              <div class="timeline-content">
+                Indian Space Research Organisation was officially formed,
+                marking the beginning of India's systematic approach to space
+                exploration and satellite technology.
+              </div>
+            </div>
+            <div class="timeline-item fade-in">
+              <div class="timeline-year">
+                <i class="fas fa-satellite"></i>
+                1975
+              </div>
+              <div class="timeline-title">First Satellite</div>
+              <div class="timeline-content">
+                Aryabhata, India's first satellite, was successfully launched
+                from the Soviet Union, opening new frontiers in space technology
+                and scientific research.
+              </div>
+            </div>
+            <div class="timeline-item fade-in">
+              <div class="timeline-year">
+                <i class="fas fa-globe"></i>
+                1994
+              </div>
+              <div class="timeline-title">PSLV Success</div>
+              <div class="timeline-content">
+                Polar Satellite Launch Vehicle achieved its first successful
+                launch, establishing India as a reliable and cost-effective
+                space launch provider.
+              </div>
+            </div>
+            <div class="timeline-item fade-in">
+              <div class="timeline-year">
+                <i class="fas fa-moon"></i>
+                2008
+              </div>
+              <div class="timeline-title">Lunar Exploration</div>
+              <div class="timeline-content">
+                Chandrayaan-1, India's first lunar probe, was launched, making
+                groundbreaking discoveries including confirmation of water
+                molecules on the Moon.
+              </div>
+            </div>
+            <div class="timeline-item fade-in">
+              <div class="timeline-year">
+                <i class="fas fa-planet-mars"></i>
+                2013
+              </div>
+              <div class="timeline-title">Mars Mission</div>
+              <div class="timeline-content">
+                Mars Orbiter Mission (Mangalyaan) was launched, making India the
+                first nation to reach Mars orbit in its maiden attempt and at
+                the lowest cost.
+              </div>
+            </div>
+            <div class="timeline-item fade-in">
+              <div class="timeline-year">
+                <i class="fas fa-space-shuttle"></i>
+                2019
+              </div>
+              <div class="timeline-title">Chandrayaan-2</div>
+              <div class="timeline-content">
+                Advanced lunar mission with orbiter, lander, and rover was
+                launched, demonstrating India's growing capabilities in complex
+                space missions.
+              </div>
+            </div>
+            <div class="timeline-item fade-in">
+              <div class="timeline-year">
+                <i class="fas fa-flag"></i>
+                2023
+              </div>
+              <div class="timeline-title">Historic Landing</div>
+              <div class="timeline-content">
+                Chandrayaan-3 successfully achieved soft landing on the Moon's
+                south pole, making India the fourth country to land on the Moon
+                and first on the lunar south pole.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Missions Section -->
+    <section class="section" id="missions">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-badge">Space Exploration</div>
+          <h2 class="section-title">Landmark Missions</h2>
+          <p class="section-description">
+            Discover the groundbreaking missions that have established India as
+            a major player in global space exploration.
+          </p>
+        </div>
+        <div class="missions-grid">
+          <div class="mission-card fade-in">
+            <div class="mission-header">
+              <span class="mission-status success">Historic Success</span>
+              <i class="fas fa-moon mission-icon"></i>
+            </div>
+            <h3 class="mission-title">Chandrayaan-1</h3>
+            <p class="mission-description">
+              India's maiden lunar mission revolutionized our understanding of
+              the Moon by confirming the presence of water molecules and mapping
+              the lunar surface with unprecedented detail using advanced
+              scientific instruments.
+            </p>
+            <div class="mission-footer">
+              <div class="mission-year">2008</div>
+              <a href="#" class="mission-link"
+                >Learn More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="mission-card fade-in">
+            <div class="mission-header">
+              <span class="mission-status success">Global First</span>
+              <i class="fas fa-planet-mars mission-icon"></i>
+            </div>
+            <h3 class="mission-title">Mars Orbiter Mission</h3>
+            <p class="mission-description">
+              A groundbreaking interplanetary mission that made India the first
+              Asian nation to reach Mars orbit and the first country globally to
+              succeed on its maiden Mars attempt, showcasing cost-effective
+              space technology.
+            </p>
+            <div class="mission-footer">
+              <div class="mission-year">2013</div>
+              <a href="#" class="mission-link"
+                >Learn More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="mission-card fade-in">
+            <div class="mission-header">
+              <span class="mission-status partial">Partial Success</span>
+              <i class="fas fa-satellite mission-icon"></i>
+            </div>
+            <h3 class="mission-title">Chandrayaan-2</h3>
+            <p class="mission-description">
+              An ambitious lunar mission featuring an orbiter, lander (Vikram),
+              and rover (Pragyan). While the lander faced challenges during
+              descent, the orbiter continues to provide valuable scientific data
+              and imagery.
+            </p>
+            <div class="mission-footer">
+              <div class="mission-year">2019</div>
+              <a href="#" class="mission-link"
+                >Learn More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="mission-card fade-in">
+            <div class="mission-header">
+              <span class="mission-status success">Triumphant Success</span>
+              <i class="fas fa-flag mission-icon"></i>
+            </div>
+            <h3 class="mission-title">Chandrayaan-3</h3>
+            <p class="mission-description">
+              A triumphant mission that achieved India's first successful soft
+              landing on the Moon's south pole, making India the fourth country
+              to land on the Moon and demonstrating remarkable technological
+              advancement.
+            </p>
+            <div class="mission-footer">
+              <div class="mission-year">2023</div>
+              <a href="#" class="mission-link"
+                >Learn More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="mission-card fade-in">
+            <div class="mission-header">
+              <span class="mission-status ongoing">Ongoing</span>
+              <i class="fas fa-sun mission-icon"></i>
+            </div>
+            <h3 class="mission-title">Aditya-L1</h3>
+            <p class="mission-description">
+              India's first solar mission to study the Sun's corona, solar
+              emissions, and space weather. Positioned at the L1 Lagrange point,
+              it provides continuous solar observations without eclipses.
+            </p>
+            <div class="mission-footer">
+              <div class="mission-year">2023</div>
+              <a href="#" class="mission-link"
+                >Learn More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="mission-card fade-in">
+            <div class="mission-header">
+              <span class="mission-status ongoing">Future Mission</span>
+              <i class="fas fa-user-astronaut mission-icon"></i>
+            </div>
+            <h3 class="mission-title">Gaganyaan</h3>
+            <p class="mission-description">
+              India's ambitious human spaceflight program aimed at sending
+              Indian astronauts (Gagannauts) to space, marking a significant
+              milestone in India's space exploration capabilities.
+            </p>
+            <div class="mission-footer">
+              <div class="mission-year">2024-25</div>
+              <a href="#" class="mission-link"
+                >Learn More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section" id="achievements">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-badge">Global Recognition</div>
+          <h2 class="section-title">Major Achievements</h2>
+          <p class="section-description">
+            ISRO's remarkable accomplishments that have earned global
+            recognition and established India as a leading space-faring nation.
+          </p>
+        </div>
+        <div class="achievements-grid">
+          <div class="achievement-card fade-in">
+            <i class="fas fa-dollar-sign achievement-icon"></i>
+            <h3 class="achievement-title">Cost-Effective Excellence</h3>
+            <p class="achievement-description">
+              ISRO has mastered the art of frugal engineering, achieving
+              remarkable space milestones at a fraction of the cost compared to
+              other space agencies worldwide, making space accessible and
+              affordable.
+            </p>
+          </div>
+          <div class="achievement-card fade-in">
+            <i class="fas fa-globe achievement-icon"></i>
+            <h3 class="achievement-title">Global Satellite Services</h3>
+            <p class="achievement-description">
+              Successfully launched over 400 satellites for more than 34
+              countries, establishing India as a trusted and reliable partner in
+              global space commerce and international cooperation.
+            </p>
+          </div>
+          <div class="achievement-card fade-in">
+            <i class="fas fa-compass achievement-icon"></i>
+            <h3 class="achievement-title">Navigation Independence</h3>
+            <p class="achievement-description">
+              Developed the indigenous NavIC (Navigation with Indian
+              Constellation) system, providing accurate positioning services
+              across India and reducing dependence on foreign navigation
+              systems.
+            </p>
+          </div>
+          <div class="achievement-card fade-in">
+            <i class="fas fa-rocket achievement-icon"></i>
+            <h3 class="achievement-title">Launch Vehicle Mastery</h3>
+            <p class="achievement-description">
+              Developed reliable launch vehicles including PSLV and GSLV, with
+              PSLV becoming the workhorse for satellite launches and earning the
+              nickname "Baahubali" for its consistent performance.
+            </p>
+          </div>
+          <div class="achievement-card fade-in">
+            <i class="fas fa-satellite-dish achievement-icon"></i>
+            <h3 class="achievement-title">Communication Revolution</h3>
+            <p class="achievement-description">
+              Transformed India's communication landscape through INSAT series
+              satellites, enabling television broadcasting, telecommunications,
+              and meteorological services across the nation.
+            </p>
+          </div>
+          <div class="achievement-card fade-in">
+            <i class="fas fa-eye achievement-icon"></i>
+            <h3 class="achievement-title">Earth Observation</h3>
+            <p class="achievement-description">
+              Advanced remote sensing capabilities through IRS satellites for
+              agriculture, forestry, water resources, urban planning, and
+              disaster management, supporting national development.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="section" id="technology">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-badge">Innovation Hub</div>
+          <h2 class="section-title">Cutting-Edge Technology</h2>
+          <p class="section-description">
+            Explore the advanced technologies and innovations that power ISRO's
+            space missions and scientific discoveries.
+          </p>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-card fade-in">
+            <i class="fas fa-microchip tech-icon"></i>
+            <h3 class="tech-title">Satellite Technology</h3>
+            <p class="tech-description">
+              Advanced satellite systems for communication, navigation, earth
+              observation, and scientific research.
+            </p>
+          </div>
+          <div class="tech-card fade-in">
+            <i class="fas fa-rocket tech-icon"></i>
+            <h3 class="tech-title">Launch Vehicles</h3>
+            <p class="tech-description">
+              Reliable PSLV and GSLV launch systems with proven track records
+              for various payload requirements.
+            </p>
+          </div>
+          <div class="tech-card fade-in">
+            <i class="fas fa-cog tech-icon"></i>
+            <h3 class="tech-title">Propulsion Systems</h3>
+            <p class="tech-description">
+              Indigenous cryogenic and semi-cryogenic engines for enhanced
+              payload capacity and mission flexibility.
+            </p>
+          </div>
+          <div class="tech-card fade-in">
+            <i class="fas fa-satellite tech-icon"></i>
+            <h3 class="tech-title">Space Platforms</h3>
+            <p class="tech-description">
+              Standardized satellite buses and platforms for efficient and
+              cost-effective mission development.
+            </p>
+          </div>
+          <div class="tech-card fade-in">
+            <i class="fas fa-wifi tech-icon"></i>
+            <h3 class="tech-title">Ground Systems</h3>
+            <p class="tech-description">
+              Sophisticated tracking, telemetry, and command systems for mission
+              control and data reception.
+            </p>
+          </div>
+          <div class="tech-card fade-in">
+            <i class="fas fa-brain tech-icon"></i>
+            <h3 class="tech-title">AI & Automation</h3>
+            <p class="tech-description">
+              Integration of artificial intelligence and automation for enhanced
+              mission planning and execution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaders Section -->
+    <section class="section" id="leaders">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-badge">Visionary Leadership</div>
+          <h2 class="section-title">Pioneering Leaders</h2>
+          <p class="section-description">
+            Meet the visionary leaders who have shaped ISRO's journey and guided
+            India's space program to unprecedented heights.
+          </p>
+        </div>
+        <div class="leaders-grid">
+          <div class="leader-card fade-in">
+            <img
+              src="https://tse1.mm.bing.net/th?id=OIP.PF-pcOp0UiQmRNMO9ZEH5wHaEK&pid=Api&P=0&h=180"
+              alt="Dr. Vikram Sarabhai"
+              class="leader-image"
+            />
+            <h3 class="leader-name">Dr. Vikram Sarabhai</h3>
+            <p class="leader-role">Father of Indian Space Program</p>
+            <p class="leader-period">1963 - 1971</p>
+            <p class="leader-description">
+              Visionary physicist who laid the foundation of India's space
+              program and established the philosophical framework for peaceful
+              space exploration.
+            </p>
+          </div>
+          <div class="leader-card fade-in">
+            <img
+              src="https://tse1.mm.bing.net/th?id=OIP.lZpXLgkr7Ori_sQrdSbZIQHaEK&pid=Api&P=0&h=180"
+              alt="Prof. Satish Dhawan"
+              class="leader-image"
+            />
+            <h3 class="leader-name">Prof. Satish Dhawan</h3>
+            <p class="leader-role">Architect of Modern ISRO</p>
+            <p class="leader-period">1972 - 1984</p>
+            <p class="leader-description">
+              Transformed ISRO into a world-class space organization and
+              established the operational framework for satellite and launch
+              vehicle programs.
+            </p>
+          </div>
+          <div class="leader-card fade-in">
+            <img
+              src="https://tse2.mm.bing.net/th?id=OIP.NEOtVuUjd0kkOyDUJhhVAwHaKj&pid=Api&P=0&h=180"
+              alt="Prof. U. R. Rao"
+              class="leader-image"
+            />
+            <h3 class="leader-name">Prof. U. R. Rao</h3>
+            <p class="leader-role">Satellite Technology Pioneer</p>
+            <p class="leader-period">1984 - 1994</p>
+            <p class="leader-description">
+              Led the development of India's satellite technology and
+              established ISRO as a major player in global satellite services.
+            </p>
+          </div>
+          <div class="leader-card fade-in">
+            <img
+              src="https://tse2.mm.bing.net/th?id=OIP.Z4enI1lhp1YiSaz-xzbzTwHaIw&pid=Api&P=0&h=180"
+              alt="Dr. A. P. J. Abdul Kalam"
+              class="leader-image"
+            />
+            <h3 class="leader-name">Dr. A. P. J. Abdul Kalam</h3>
+            <p class="leader-role">Missile Man of India</p>
+            <p class="leader-period">Project Director</p>
+            <p class="leader-description">
+              Played a crucial role in developing India's satellite launch
+              vehicle technology and later became the President of India.
+            </p>
+          </div>
+          <div class="leader-card fade-in">
+            <img
+              src="https://starsunfolded.com/wp-content/uploads/2019/09/Kailasavadivoo-Sivan.jpg"
+              alt="Dr. K. Sivan"
+              class="leader-image"
+            />
+            <h3 class="leader-name">Dr. K. Sivan</h3>
+            <p class="leader-role">Rocket Man of India</p>
+            <p class="leader-period">2018 - 2022</p>
+            <p class="leader-description">
+              Led ISRO during the Chandrayaan-2 and Chandrayaan-3 missions,
+              earning recognition for his leadership in lunar exploration.
+            </p>
+          </div>
+          <div class="leader-card fade-in">
+            <img
+              src="https://tse2.mm.bing.net/th?id=OIP.X1oqu57gfdUSUkalJtbcBwHaEK&pid=Api&P=0&h=180"
+              alt="Dr. S. Somanath"
+              class="leader-image"
+            />
+            <h3 class="leader-name">Dr. S. Somanath</h3>
+            <p class="leader-role">Current Chairman</p>
+            <p class="leader-period">2022 - Present</p>
+            <p class="leader-description">
+              Leading ISRO's future missions including Gaganyaan human
+              spaceflight program and advanced planetary exploration missions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-header fade-in">
+          <div class="section-badge">Visual Journey</div>
+          <h2 class="section-title">Mission Gallery</h2>
+          <p class="section-description">
+            Witness the spectacular moments and achievements of ISRO's space
+            missions through this curated collection of images.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item fade-in">
+            <img
+              src="https://images.pexels.com/photos/586063/pexels-photo-586063.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+              alt="Chandrayaan-3 Lander"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+            <div class="gallery-caption">Chandrayaan-3 Lunar Lander</div>
+          </div>
+          <div class="gallery-item fade-in">
+            <img
+              src="https://images.pexels.com/photos/586030/pexels-photo-586030.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+              alt="Mars Orbiter Mission"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+            <div class="gallery-caption">Mars Orbiter Mission</div>
+          </div>
+          <div class="gallery-item fade-in">
+            <img
+              src="https://images.pexels.com/photos/586056/pexels-photo-586056.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+              alt="PSLV Launch"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+            <div class="gallery-caption">PSLV Launch Vehicle</div>
+          </div>
+          <div class="gallery-item fade-in">
+            <img
+              src="https://images.pexels.com/photos/586057/pexels-photo-586057.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+              alt="Satellite Assembly"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+            <div class="gallery-caption">Satellite Assembly Facility</div>
+          </div>
+          <div class="gallery-item fade-in">
+            <img
+              src="https://images.pexels.com/photos/586058/pexels-photo-586058.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+              alt="Mission Control"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+            <div class="gallery-caption">Mission Control Center</div>
+          </div>
+          <div class="gallery-item fade-in">
+            <img
+              src="https://images.pexels.com/photos/586059/pexels-photo-586059.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+              alt="Earth from Space"
+              class="gallery-image"
+            />
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+            <div class="gallery-caption">Earth from Space</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>About ISRO</h3>
+            <p>
+              The Indian Space Research Organisation is India's national space
+              agency, committed to advancing space technology and its
+              applications for national development.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#" class="footer-link">Official Website</a></li>
+              <li><a href="#" class="footer-link">Mission Updates</a></li>
+              <li><a href="#" class="footer-link">Launch Schedule</a></li>
+              <li><a href="#" class="footer-link">Press Releases</a></li>
+              <li><a href="#" class="footer-link">Career Opportunities</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+              <li><a href="#" class="footer-link">Educational Programs</a></li>
+              <li><a href="#" class="footer-link">Research Papers</a></li>
+              <li><a href="#" class="footer-link">Technical Documents</a></li>
+              <li><a href="#" class="footer-link">Image Gallery</a></li>
+              <li><a href="#" class="footer-link">Video Library</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <ul class="footer-links">
+              <li><a href="#" class="footer-link">Headquarters</a></li>
+              <li><a href="#" class="footer-link">Regional Centers</a></li>
+              <li><a href="#" class="footer-link">Media Inquiries</a></li>
+              <li><a href="#" class="footer-link">Public Relations</a></li>
+              <li><a href="#" class="footer-link">Technical Support</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 Indian Space Research Organisation. All rights reserved.</p>
+          <p>
+            This educational website celebrates the achievements and legacy of
+            ISRO's space exploration journey.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal for Gallery -->
+    <div class="modal" id="galleryModal">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <img
+          id="modalImage"
+          src=""
+          alt=""
+          style="width: 100%; border-radius: 8px"
+        />
+        <h3
+          id="modalTitle"
+          style="margin-top: 1rem; color: var(--text-primary)"
+        ></h3>
+      </div>
+    </div>
+
+    <script>
+      // Loading screen
+      window.addEventListener("load", () => {
+        const loading = document.getElementById("loading");
+        setTimeout(() => {
+          loading.classList.add("hidden");
+        }, 2000);
+      });
+
+      // Create hero particles
+      function createHeroParticles() {
+        const container = document.getElementById("heroParticles");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.top = Math.random() * 100 + "%";
+          particle.style.animationDelay = Math.random() * 6 + "s";
+          particle.style.animationDuration = Math.random() * 4 + 4 + "s";
+          container.appendChild(particle);
+        }
+      }
+
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Active navigation link
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sections = document.querySelectorAll("section[id]");
+
+      function setActiveNavLink() {
+        const scrollY = window.pageYOffset;
+
+        sections.forEach((section) => {
+          const sectionHeight = section.offsetHeight;
+          const sectionTop = section.offsetTop - 120;
+          const sectionId = section.getAttribute("id");
+
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach((link) => link.classList.remove("active"));
+            const activeLink = document.querySelector(
+              `.nav-link[href="#${sectionId}"]`
+            );
+            if (activeLink) activeLink.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", setActiveNavLink);
+
+      // Smooth scrolling for navigation links
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animation classes
+      document
+        .querySelectorAll(
+          ".fade-in, .slide-in-left, .slide-in-right, .scale-in"
+        )
+        .forEach((el) => {
+          observer.observe(el);
+        });
+
+      // Animated counters for statistics
+      function animateCounters() {
+        const counters = document.querySelectorAll("[data-count]");
+
+        counters.forEach((counter) => {
+          const target = parseInt(counter.getAttribute("data-count"));
+          const duration = 2000;
+          const step = target / (duration / 16);
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            counter.textContent = Math.floor(current);
+          }, 16);
+        });
+      }
+
+      // Trigger counter animation when stats section is visible
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      });
+
+      const statsSection = document.getElementById("stats");
+      if (statsSection) {
+        statsObserver.observe(statsSection);
+      }
+
+      // Parallax effect for background elements
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const stars = document.querySelector(".bg-stars");
+        const nebula = document.querySelector(".bg-nebula");
+
+        if (stars) {
+          stars.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+
+        if (nebula) {
+          nebula.style.transform = `translateY(${scrolled * 0.2}px)`;
+        }
+      });
+
+      // Enhanced hover effects for cards
+      document
+        .querySelectorAll(
+          ".mission-card, .achievement-card, .leader-card, .tech-card"
+        )
+        .forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = this.classList.contains("mission-card")
+              ? "translateY(-15px) scale(1.03)"
+              : "translateY(-10px)";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0) scale(1)";
+          });
+        });
+
+      // Gallery modal functionality
+      const galleryItems = document.querySelectorAll(".gallery-item");
+      const modal = document.getElementById("galleryModal");
+      const modalImage = document.getElementById("modalImage");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalClose = document.getElementById("modalClose");
+
+      galleryItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const img = item.querySelector(".gallery-image");
+          const caption = item.querySelector(".gallery-caption");
+
+          modalImage.src = img.src;
+          modalImage.alt = img.alt;
+          modalTitle.textContent = caption.textContent;
+          modal.classList.add("active");
+        });
+      });
+
+      modalClose.addEventListener("click", () => {
+        modal.classList.remove("active");
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+        }
+      });
+
+      // Mobile menu functionality
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navLinksContainer = document.querySelector(".nav-links");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinksContainer.style.display =
+          navLinksContainer.style.display === "flex" ? "none" : "flex";
+      });
+
+      // Keyboard navigation support
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+          modal.classList.remove("active");
+        }
+
+        if (e.key === "ArrowDown" || e.key === "PageDown") {
+          window.scrollBy(0, 300);
+        } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+          window.scrollBy(0, -300);
+        } else if (e.key === "Home") {
+          window.scrollTo(0, 0);
+        } else if (e.key === "End") {
+          window.scrollTo(0, document.body.scrollHeight);
+        }
+      });
+
+      // Performance optimization: Debounced scroll handler
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      const debouncedScrollHandler = debounce(() => {
+        setActiveNavLink();
+      }, 10);
+
+      window.addEventListener("scroll", debouncedScrollHandler);
+
+      // Timeline item stagger animation
+      const timelineItems = document.querySelectorAll(".timeline-item");
+      timelineItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.2}s`;
+      });
+
+      // Mission cards stagger animation
+      const missionCards = document.querySelectorAll(".mission-card");
+      missionCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+      });
+
+      // Achievement cards stagger animation
+      const achievementCards = document.querySelectorAll(".achievement-card");
+      achievementCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.15}s`;
+      });
+
+      // Add click effects to interactive elements
+      document
+        .querySelectorAll(".hero-btn, .mission-link, .social-link")
+        .forEach((element) => {
+          element.addEventListener("click", function (e) {
+            // Create ripple effect
+            const ripple = document.createElement("span");
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.width = ripple.style.height = size + "px";
+            ripple.style.left = x + "px";
+            ripple.style.top = y + "px";
+            ripple.classList.add("ripple");
+
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+              ripple.remove();
+            }, 600);
+          });
+        });
+
+      // Error handling for images
+      document.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("error", function () {
+          this.style.opacity = "0.5";
+          this.alt = "Image not available";
+        });
+      });
+
+      // Initialize particles and other effects
+      document.addEventListener("DOMContentLoaded", () => {
+        createHeroParticles();
+      });
+
+      // Add CSS for ripple effect
+      const style = document.createElement("style");
+      style.textContent = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(0);
+                animation: ripple-animation 0.6s linear;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+      document.head.appendChild(style);
+
+      // Smooth reveal animations for sections
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll(".section").forEach((section) => {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(30px)";
+        section.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+        revealObserver.observe(section);
+      });
+    </script>
+    <script>
+    // Background video looping through multiple sources
+    const videoUrls = [
+      "https://cdn.pixabay.com/video/2022/10/12/134471-759723611_tiny.mp4",
+      "https://cdn.pixabay.com/video/2015/08/07/3-135655112_tiny.mp4",
+      "https://cdn.pixabay.com/video/2022/08/05/126832-737028191_tiny.mp4",
+      "https://cdn.pixabay.com/video/2016/03/31/2619-865412755_tiny.mp4",
+      "https://cdn.pixabay.com/video/2024/09/24/233053_tiny.mp4"
+    ];
+    let currentVideo = 0;
+    const bgVideo = document.getElementById('bg-video');
+    let videoSwitchTimeout;
+    const VIDEO_DURATION = 7000; // 7 seconds per video
+
+    function setVideoSource(idx) {
+      bgVideo.src = videoUrls[idx];
+      bgVideo.load();
+      bgVideo.play();
+      console.log('Background video source set to:', videoUrls[idx]);
+      clearTimeout(videoSwitchTimeout);
+      videoSwitchTimeout = setTimeout(() => {
+        currentVideo = (currentVideo + 1) % videoUrls.length;
+        setVideoSource(currentVideo);
+      }, VIDEO_DURATION);
+    }
+
+    // On first load
+    setVideoSource(currentVideo);
+  </script>
+</body>
+</html>
