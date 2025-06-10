@@ -54,13 +54,7 @@ A visually immersive, space-themed web experience that chronicles the legacy, mi
 ## 🧭 Project Structure
 Akashpath/
 ├── index.html # Main landing page
-├── x1.html # (Optional internal pages)
-├── css/ # Custom stylesheets
-├── js/ # JavaScript files for interactivity
-├── assets/ # Images, icons, videos
-├── README.md # Project documentation
 
----
 
 ## 🧪 How to Launch
 
