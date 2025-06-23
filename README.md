@@ -4,7 +4,7 @@
 
 A visually immersive, space-themed web experience that chronicles the legacy, missions, and visionaries of the Indian Space Research Organisation (ISRO). Built using **HTML, CSS, and JavaScript**, the site is responsive, elegant, and informative — designed to educate, inspire, and honor India's journey into the stars.
 
-## Demo 🔗 -  https://akshithareddy005.github.io/ISRO/
+🌐 **Live Demo:** [Visit Akashpath](https://akshithareddy005.github.io/ISRO/)
 
 
 ---
@@ -104,5 +104,25 @@ All external media and content remain the property of their respective owners.
 ---
 
 *For suggestions, feedback, or collaborations — feel free to reach out to the project members.*
+## 📦 How to Launch
+
+To run this project locally:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/AkshithaReddy005/ISRO.git
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd ISRO
+   ```
+
+3. **Open `index.html` in your browser:**
+   - Just double-click the `index.html` file  
+
+
+4. **View in browser:**
+   
 
 
